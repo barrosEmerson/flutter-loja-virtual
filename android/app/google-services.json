@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "704494672826",
+    "firebase_url": "https://shop-barros.firebaseio.com",
+    "project_id": "shop-barros",
+    "storage_bucket": "shop-barros.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:704494672826:android:6a96e1aa36a997513f1b83",
+        "android_client_info": {
+          "package_name": "br.com.barrostech.shop_barros"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "704494672826-g69qqt17rtoioil9q2s24gr33prq6hlv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBftenpnlaoKKaAdH2_oXtmPH7oFGgLSa0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "704494672826-g69qqt17rtoioil9q2s24gr33prq6hlv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
