@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:shop_barros/screens/base_screen.dart';
 
 void main() {
   runApp(MyApp());
@@ -13,7 +14,7 @@ class MyApp extends StatelessWidget {
 
   
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Loja Barros',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         
@@ -21,7 +22,7 @@ class MyApp extends StatelessWidget {
         
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: Container(),
+      home: BaseScreen(),
     );
   }
 }
