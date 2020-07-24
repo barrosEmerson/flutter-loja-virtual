@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shop_barros/models/user_manager.dart';
 import 'package:shop_barros/screens/base_screen.dart';
+import 'package:shop_barros/screens/login/login_screen.dart';
 import 'package:shop_barros/screens/signup/signup_screen.dart';
 
 void main() {
@@ -18,6 +19,7 @@ class MyApp extends StatelessWidget {
   
     return ChangeNotifierProvider(
         create: (_) => UserManager(),
+          lazy: false,
           child: MaterialApp(
         title: 'Loja Barros',
         debugShowCheckedModeBanner: false,
@@ -33,6 +35,10 @@ class MyApp extends StatelessWidget {
         initialRoute: '/base',
         onGenerateRoute: (settings){
           switch(settings.name){
+            case'/login':
+              return MaterialPageRoute(
+                  builder: (_) => LoginScreen()
+              );
             case'/signup':
               return MaterialPageRoute(
                 builder: (_) => SignUpScreen()

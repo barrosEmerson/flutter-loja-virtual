@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shop_barros/common/custom_drawer/custom_drawer.dart';
 import 'package:shop_barros/models/page_manager.dart';
-import 'package:shop_barros/screens/login/login_screen.dart';
 
 class BaseScreen extends StatelessWidget {
   final PageController pageController = PageController();
@@ -15,7 +14,6 @@ class BaseScreen extends StatelessWidget {
         controller: pageController,
         physics: NeverScrollableScrollPhysics(),
         children: <Widget>[
-          LoginScreen(),
           Scaffold(
             drawer: CustomDrawer(),
             appBar: AppBar(
