@@ -5,9 +5,8 @@ import 'package:flutter/services.dart';
 import 'package:shop_barros/helpers/firebase_errors.dart';
 import 'package:shop_barros/models/user.dart';
 
-class UserManager extends ChangeNotifier{
-
-  UserManager(){
+class UserManager extends ChangeNotifier {
+  UserManager() {
     _loadCurrentUser();
   }
 
@@ -20,25 +19,30 @@ class UserManager extends ChangeNotifier{
 
   bool get isLoggedin => user != null;
 
-  Future<void> signIn({User user, Function onFail, Function onSuccess})async{
+  Future<void> signIn({User user, Function onFail, Function onSuccess}) async {
     loading = true;
-    try{
-    final AuthResult result = await auth.signInWithEmailAndPassword(
-      email: user.email, password: user.password);
+    try {
+      final AuthResult result = await auth.signInWithEmailAndPassword(
+          email: user.email, password: user.password);
 
-    await _loadCurrentUser(firebaseUser: result.user);
+      await _loadCurrentUser(firebaseUser: result.user);
 
       onSuccess();
-
-    }on PlatformException catch(e){
+    } on PlatformException catch (e) {
       onFail(getErrorString(e.code));
     }
     loading = false;
   }
 
-  Future<void> signUp({User user, Function onFail, Function onSuccess})async{
+  void signOut() {
+    auth.signOut();
+    user = null;
+    notifyListeners();
+  }
+
+  Future<void> signUp({User user, Function onFail, Function onSuccess}) async {
     loading = true;
-    try{
+    try {
       final AuthResult result = await auth.createUserWithEmailAndPassword(
           email: user.email, password: user.password);
 
@@ -47,26 +51,24 @@ class UserManager extends ChangeNotifier{
 
       await user.saveData();
       onSuccess();
-
-    }on PlatformException catch(e){
+    } on PlatformException catch (e) {
       onFail(getErrorString(e.code));
     }
     loading = false;
   }
 
-  set loading(bool value){
+  set loading(bool value) {
     _loading = value;
     notifyListeners();
   }
 
-  Future<void> _loadCurrentUser({FirebaseUser firebaseUser})async{
+  Future<void> _loadCurrentUser({FirebaseUser firebaseUser}) async {
     final FirebaseUser currentUser = firebaseUser ?? await auth.currentUser();
-    if(currentUser != null ){
-      final DocumentSnapshot docUser = await firestore.collection('users').document(currentUser.uid).get();
+    if (currentUser != null) {
+      final DocumentSnapshot docUser =
+          await firestore.collection('users').document(currentUser.uid).get();
       user = User.fromDocument(docUser);
       notifyListeners();
     }
-
   }
-
 }

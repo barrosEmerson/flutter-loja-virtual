@@ -20,29 +20,26 @@ class CustomDrawerHeader extends StatelessWidget {
                 fontWeight: FontWeight.bold,
               ),
             ),
-            Text('Olá, ${userManager.user?.name ?? ''}',
-            overflow: TextOverflow.ellipsis,
+            Text(
+              'Olá, ${userManager.user?.name ?? ''}',
+              overflow: TextOverflow.ellipsis,
               maxLines: 2,
-              style: TextStyle(
-                fontSize: 18,
-                fontWeight: FontWeight.bold
-              ),
+              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
             ),
             GestureDetector(
-              onTap: (){
-                if(userManager.isLoggedin){
-                  //TODO: SAIR
-                }else {
+              onTap: () {
+                if (userManager.isLoggedin) {
+                  userManager.signOut();
+                } else {
                   Navigator.of(context).pushNamed('/login');
                 }
               },
               child: Text(
                 userManager.isLoggedin ? 'Sair' : 'Entrar ou cadastrar >',
                 style: TextStyle(
-                  color: Theme.of(context).primaryColor,
-                  fontSize: 16,
-                  fontWeight: FontWeight.bold
-                ),
+                    color: Theme.of(context).primaryColor,
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold),
               ),
             )
           ],

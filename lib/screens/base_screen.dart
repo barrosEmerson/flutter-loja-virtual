@@ -29,7 +29,7 @@ class BaseScreen extends StatelessWidget {
           Scaffold(
             drawer: CustomDrawer(),
             appBar: AppBar(
-              title: const Text('Home3'),
+              title: const Text('Testando Home'),
             ),
           ),
         ],
