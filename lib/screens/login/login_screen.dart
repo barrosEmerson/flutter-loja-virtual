@@ -4,6 +4,7 @@ import 'package:provider/provider.dart';
 import 'package:shop_barros/models/user.dart';
 import 'package:shop_barros/models/user_manager.dart';
 
+// ignore: use_key_in_widget_constructors
 class LoginScreen extends StatelessWidget {
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passController = TextEditingController();
@@ -102,24 +103,20 @@ class LoginScreen extends StatelessWidget {
                                       });
                                 }
                               },
+                        // ignore: sort_child_properties_last
                         child: userManeger.loading
-                            ? CircularProgressIndicator(
+                            ? const CircularProgressIndicator(
                                 valueColor:
                                     AlwaysStoppedAnimation(Colors.white),
                               )
-                            : Text(
+                            : const Text(
                                 'Entrar',
                                 style: TextStyle(fontSize: 18),
                               ),
                         textColor: Colors.white,
-                        color: Theme
-                            .of(context)
-                            .primaryColor,
+                        color: Theme.of(context).primaryColor,
                         disabledColor:
-                        Theme
-                            .of(context)
-                            .primaryColor
-                            .withAlpha(100),
+                            Theme.of(context).primaryColor.withAlpha(100),
                       ),
                     ),
                   ],

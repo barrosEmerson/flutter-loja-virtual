@@ -5,6 +5,7 @@ import 'package:shop_barros/models/user.dart';
 import 'package:provider/provider.dart';
 import 'package:shop_barros/models/user_manager.dart';
 
+// ignore: use_key_in_widget_constructors
 class SignUpScreen extends StatelessWidget {
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
   final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
@@ -37,6 +38,7 @@ class SignUpScreen extends StatelessWidget {
                       if (name.isEmpty) {
                         return 'Campo obrigatório';
                       } else if (name.trim().split(' ').length <= 1)
+                        // ignore: curly_braces_in_flow_control_structures
                         return 'Preencha seu nome completo';
                       return null;
                     },
@@ -106,9 +108,8 @@ class SignUpScreen extends StatelessWidget {
 
                                 if (user.password != user.confirmPassword) {
                                   scaffoldKey.currentState
-                                      .showSnackBar(SnackBar(
-                                    content:
-                                        const Text('Senhas são diferentes!'),
+                                      .showSnackBar(const SnackBar(
+                                    content: Text('Senhas são diferentes!'),
                                     backgroundColor: Colors.red,
                                   ));
                                   return;
@@ -128,7 +129,7 @@ class SignUpScreen extends StatelessWidget {
                               }
                             },
                       child: userManager.loading
-                          ? CircularProgressIndicator(
+                          ? const CircularProgressIndicator(
                               valueColor: AlwaysStoppedAnimation(Colors.white),
                             )
                           : const Text(

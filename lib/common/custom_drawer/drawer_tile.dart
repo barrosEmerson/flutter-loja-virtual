@@ -3,7 +3,8 @@ import 'package:provider/provider.dart';
 import 'package:shop_barros/models/page_manager.dart';
 
 class DrawerTile extends StatelessWidget {
- const DrawerTile({this.iconData, this.title, this.page});
+  // ignore: use_key_in_widget_constructors
+  const DrawerTile({this.iconData, this.title, this.page});
 
   final String title;
   final IconData iconData;
@@ -11,12 +12,11 @@ class DrawerTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     final int curPage = context.watch<PageManager>().page;
     final Color primaryColor = Theme.of(context).primaryColor;
 
     return InkWell(
-      onTap: (){
+      onTap: () {
         context.read<PageManager>().setPage(page);
       },
       child: SizedBox(
@@ -33,8 +33,10 @@ class DrawerTile extends StatelessWidget {
             ),
             Text(
               title,
-              style: TextStyle(fontSize: 16, 
-              color: curPage == page ? primaryColor : Colors.grey[700],),
+              style: TextStyle(
+                fontSize: 16,
+                color: curPage == page ? primaryColor : Colors.grey[700],
+              ),
             )
           ],
         ),

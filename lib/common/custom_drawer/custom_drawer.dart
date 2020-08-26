@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:shop_barros/common/custom_drawer/custom_drawer_header.dart';
 import 'package:shop_barros/common/custom_drawer/drawer_tile.dart';
 
+// ignore: use_key_in_widget_constructors
 class CustomDrawer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -9,33 +10,33 @@ class CustomDrawer extends StatelessWidget {
       child: Stack(
         children: <Widget>[
           Container(
-            decoration: BoxDecoration(
-              gradient: LinearGradient(colors: [
-                const Color.fromARGB(255, 203, 236, 241),
-                Colors.white
-              ], begin: Alignment.topCenter, end: Alignment.bottomCenter),
+            decoration: const BoxDecoration(
+              gradient: LinearGradient(
+                  colors: [Color.fromARGB(255, 203, 236, 241), Colors.white],
+                  begin: Alignment.topCenter,
+                  end: Alignment.bottomCenter),
             ),
           ),
           ListView(
             children: <Widget>[
               CustomDrawerHeader(),
               const Divider(),
-              DrawerTile(
+              const DrawerTile(
                 iconData: Icons.home,
                 title: 'Início',
                 page: 0,
               ),
-              DrawerTile(
+              const DrawerTile(
                 iconData: Icons.list,
                 title: 'Produtos',
                 page: 1,
               ),
-              DrawerTile(
+              const DrawerTile(
                 iconData: Icons.playlist_add_check,
                 title: 'Meus Pedidos',
                 page: 2,
               ),
-              DrawerTile(
+              const DrawerTile(
                 iconData: Icons.location_on,
                 title: 'Lojas',
                 page: 3,
